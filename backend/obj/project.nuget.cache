@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7S4cQWT312A=",
+  "dgSpecHash": "b4qN28qU2fg=",
   "success": false,
-  "projectFilePath": "C:\\Users\\gabol\\Desktop\\proyecto personal\\backend\\backend.csproj",
+  "projectFilePath": "C:\\Users\\gabol\\Desktop\\proyecto\\plataformaGestionAcademica\\backend\\backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gabol\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.3\\microsoft.aspnetcore.openapi.9.0.3.nupkg.sha512",
     "C:\\Users\\gabol\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.1\\microsoft.entityframeworkcore.10.0.1.nupkg.sha512",
@@ -25,7 +25,7 @@
     {
       "code": "NU1202",
       "level": "Error",
-      "message": "El paquete Microsoft.EntityFrameworkCore 10.0.1 no es compatible con net9.0 (.NETCoreApp,Version=v9.0). El paquete Microsoft.EntityFrameworkCore 10.0.1 admite: net10.0 (.NETCoreApp,Version=v10.0)",
+      "message": "Package Microsoft.EntityFrameworkCore 10.0.1 is not compatible with net9.0 (.NETCoreApp,Version=v9.0). Package Microsoft.EntityFrameworkCore 10.0.1 supports: net10.0 (.NETCoreApp,Version=v10.0)",
       "libraryId": "Microsoft.EntityFrameworkCore",
       "targetGraphs": [
         "net9.0"
@@ -34,7 +34,7 @@
     {
       "code": "NU1202",
       "level": "Error",
-      "message": "El paquete Microsoft.EntityFrameworkCore.Design 10.0.1 no es compatible con net9.0 (.NETCoreApp,Version=v9.0). El paquete Microsoft.EntityFrameworkCore.Design 10.0.1 admite: net10.0 (.NETCoreApp,Version=v10.0)",
+      "message": "Package Microsoft.EntityFrameworkCore.Design 10.0.1 is not compatible with net9.0 (.NETCoreApp,Version=v9.0). Package Microsoft.EntityFrameworkCore.Design 10.0.1 supports: net10.0 (.NETCoreApp,Version=v10.0)",
       "libraryId": "Microsoft.EntityFrameworkCore.Design",
       "targetGraphs": [
         "net9.0"
