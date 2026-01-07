@@ -1,60 +1,122 @@
-# 📚 Plataforma de Autogestión Académica
-## 🔹 Descripción
-Esta aplicación web permite a estudiantes gestionar su propia información académica de forma privada y personalizada.
-Cada usuario puede:
-- Registrar sus ramos y evaluaciones.
-- Calcular automáticamente el promedio ponderado de cada ramo.
-- Simular escenarios para conocer la nota mínima necesaria para aprobar.
-- Visualizar su progreso académico en dashboards claros y dinámicos.
+# 🎓 Plataforma de Autogestión Académica
 
-El proyecto está pensado como herramienta de autogestión, sin depender de sistemas institucionales, lo que lo hace seguro y ético para uso personal.
+![Next.js](https://img.shields.io/badge/Next.js-14-black)
+![React](https://img.shields.io/badge/React-18-61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6)
+![ASP.NET](https://img.shields.io/badge/ASP.NET_Core-Web_API-512BD4)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1)
+![Docker](https://img.shields.io/badge/Docker-2496ED)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-## 🔹 Tecnologías utilizadas
-### Frontend
-- Next.js 14 (App Router)
-- React 18
-- TypeScript
-- TailwindCSS
-- Axios
-### Backend
-- ASP.NET Core Web API
-- Entity Framework Core
-- MySQL Workbench
-- JWT para autenticación
-### Herramientas
-- Docker (Frontend, Backend, DB)
-- VS Code
-- ESLint / Prettier
+---
 
-## 🔹 Características principales
-### 1️⃣ Registro y autenticación
-- Registro con información académica mínima:
-  - Email
-  - Contraseña
-  - Universidad
-  - Carrera
-  - Año de ingreso
-  - Escala de notas (min/max)
-- Login y Logout seguro con JWT.
-- Validaciones estrictas de datos.
-### 2️⃣ Gestión de ramos
-- Crear, editar y eliminar ramos.
-- Campos: nombre, créditos, semestre, estado (cursando/aprobado/reprobado).
-- Cada estudiante gestiona únicamente sus propios ramos.
-### 3️⃣ Gestión de evaluaciones
-- CRUD de evaluaciones dentro de cada ramo.
-- Campos: nombre, porcentaje, nota, fecha.
-- Validaciones: suma de porcentajes ≤ 100, notas dentro de escala definida.
-### 4️⃣ Dashboard y simulaciones
-- Promedio por ramo y promedio general.
-- Créditos cursados vs aprobados.
-- Nota mínima necesaria para aprobar cada ramo.
-- Simulaciones de escenarios de notas futuras.
-- Visualización clara y moderna con TailwindCSS.
+## 📌 Descripción general
 
-## 🔹 Modelo de datos
-### User
+La **Plataforma de Autogestión Académica** es una aplicación web donde cada estudiante gestiona de forma **privada y personalizada** su progreso académico.
+
+El sistema permite registrar ramos, evaluaciones y notas, calcular promedios automáticamente y **simular escenarios académicos**, como la **nota mínima necesaria para aprobar** un ramo.
+
+El proyecto sigue un enfoque de **autogestión**, sin depender de sistemas institucionales ni compartir datos entre usuarios.
+
+---
+
+## 🎯 Objetivos del proyecto
+
+* Aplicar un stack moderno de desarrollo web full stack.
+* Implementar autenticación segura con JWT.
+* Diseñar una arquitectura limpia y escalable.
+* Resolver un problema real mediante lógica académica automatizada.
+* Utilizar Scrum como marco de trabajo.
+
+---
+
+## 🧩 Funcionalidades principales
+
+### 🔐 Autenticación
+
+* Registro y login con JWT.
+* Registro con información académica mínima:
+
+  * Email
+  * Contraseña
+  * Universidad
+  * Carrera
+  * Año de ingreso
+  * Escala de notas (mínima y máxima)
+
+---
+
+### 📚 Gestión de ramos
+
+* Crear, editar y eliminar ramos.
+* Información por ramo:
+
+  * Nombre
+  * Créditos
+  * Semestre
+  * Estado (cursando / aprobado / reprobado)
+* Cada usuario gestiona únicamente sus propios ramos.
+
+---
+
+### 📝 Gestión de evaluaciones
+
+* CRUD de evaluaciones por ramo.
+* Campos:
+
+  * Nombre
+  * Porcentaje
+  * Nota (opcional)
+* Validaciones:
+
+  * La suma de porcentajes no puede superar el 100%.
+  * Las notas deben respetar la escala definida por el usuario.
+
+---
+
+### 📊 Cálculo inteligente y simulaciones
+
+* Promedio ponderado por ramo.
+* Promedio general.
+* Cálculo automático de la **nota mínima necesaria para aprobar**.
+* Simulación de escenarios académicos futuros.
+
+---
+
+### 📈 Dashboard personal
+
+* Créditos cursados vs aprobados.
+* Estado de los ramos.
+* Visualización clara del progreso académico.
+* Interfaz moderna y responsive.
+
+---
+
+## 🏗 Arquitectura del sistema
+
+```text
+Frontend
+└─ Next.js 14 (React 18 + TypeScript + TailwindCSS)
+   └─ Axios (consumo de API REST)
+
+Backend
+└─ ASP.NET Core Web API
+   └─ Entity Framework Core
+
+Base de Datos
+└─ MySQL (MySQL Workbench)
+
+Infraestructura
+└─ Docker (Frontend + Backend + DB)
 ```
+
+---
+
+## 🗃 Modelo de datos
+
+### User
+
+```csharp
 User
 - Id
 - Email
@@ -65,8 +127,10 @@ User
 - MinGrade
 - MaxGrade
 ```
+
 ### Course
-```
+
+```csharp
 Course
 - Id
 - Name
@@ -75,8 +139,10 @@ Course
 - Status
 - UserId
 ```
+
 ### Evaluation
-```
+
+```csharp
 Evaluation
 - Id
 - Name
@@ -84,22 +150,109 @@ Evaluation
 - Grade (nullable)
 - CourseId
 ```
-### Relaciones
-- User 1 ── * Course
-- Course 1 ── * Evaluation
 
-## 🔹 Arquitectura
-```text
-Frontend (Next.js 14)
-  │
-  ├─ Axios → consume API
-  │
-Backend (ASP.NET Core Web API)
-  │
-  └─ Entity Framework Core → PostgreSQL
+**Relaciones**
+
+* User 1 ── * Course
+* Course 1 ── * Evaluation
+
+---
+
+## 🛠 Tecnologías utilizadas
+
+### Frontend
+
+* Next.js 14 (App Router)
+* React 18
+* TypeScript
+* TailwindCSS
+* Axios
+
+### Backend
+
+* ASP.NET Core Web API
+* Entity Framework Core
+* JWT Authentication
+
+### Base de datos
+
+* MySQL (MySQL Workbench)
+
+### DevOps y herramientas
+
+* Docker & Docker Compose
+* ESLint / Prettier
+* VS Code
+
+---
+
+## 🚀 Instalación y ejecución
+
+### 1️⃣ Clonar el repositorio
+
+```bash
+git clone https://github.com/ProMDFK123/plataformaGestionAcademica
 ```
-### Docker
-- Contenedor frontend
-- Contenedor backend
-- Contenedor DB (MySQL)
 
+---
+
+### 2️⃣ Configurar variables de entorno
+
+Archivo `.env` para el backend:
+
+```env
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=root
+DB_PASS=password
+DB_NAME=autogestion
+JWT_SECRET=clave_secreta_segura
+```
+
+---
+
+### 3️⃣ Ejecutar con Docker
+
+```bash
+docker-compose up --build
+```
+
+---
+
+### 4️⃣ Accesos
+
+* Frontend: `http://localhost:3000`
+* Backend API: `http://localhost:5000/api`
+
+---
+
+## 🔐 Seguridad
+
+* Autenticación basada en JWT.
+* Todas las operaciones están filtradas por el `UserId` obtenido desde el token.
+* No se acepta el `UserId` desde el frontend.
+* Contraseñas hasheadas.
+* Validaciones estrictas en backend.
+
+---
+
+## 🧭 Roadmap Scrum (resumen)
+
+| Sprint | Objetivo                       |
+| ------ | ------------------------------ |
+| 1      | Setup, Auth y Registro         |
+| 2      | CRUD de Ramos                  |
+| 3      | CRUD de Evaluaciones           |
+| 4      | Cálculos académicos            |
+| 5      | Dashboard y UX                 |
+| 6      | Docker, documentación y cierre |
+
+---
+
+## 👤 Autor
+
+**Gabriel López**
+Estudiante de Ingeniería Civil en Computación e Informática
+
+
+¿Seguimos con eso? 🚀
